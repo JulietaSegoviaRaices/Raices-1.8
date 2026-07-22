@@ -61,6 +61,8 @@ let archivo = inputFoto.files[0];
         let fotoAnterior =
         editando>=0 ? plantas[editando].foto : "";
 
+alert("Va a guardar");
+
         guardarPlanta(fotoAnterior);
 
     }
