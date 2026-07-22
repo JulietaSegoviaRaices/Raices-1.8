@@ -37,6 +37,8 @@ mostrar();
 
 function agregarPlanta(){
 
+alert("Entró a agregarPlanta");
+
     let inputFoto = document.getElementById("foto");
 
 let archivo = inputFoto.files[0];
