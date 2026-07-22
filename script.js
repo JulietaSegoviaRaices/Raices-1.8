@@ -39,37 +39,38 @@ function agregarPlanta(){
 
 alert("Entró a agregarPlanta");
 
-    let inputFoto = document.getElementById("foto");
+let inputFoto = document.getElementById("foto");
 
-let archivo = inputFoto.files[0];
-
-    if(archivo){
-
-        let lector=new FileReader();
-
-        lector.onload=function(e){
-
-            guardarPlanta(e.target.result);
-
-        };
-
-        lector.readAsDataURL(archivo);
+let archivo = inputFoto && inputFoto.files.length > 0
+? inputFoto.files[0]
+: null;
 
 
-    }else{
+if(archivo){
 
-        let fotoAnterior =
-        editando>=0 ? plantas[editando].foto : "";
+    let lector = new FileReader();
 
-alert("Va a guardar");
+    lector.onload = function(e){
 
-        guardarPlanta(fotoAnterior);
+        guardarPlanta(e.target.result);
 
-    }
+    };
+
+    lector.readAsDataURL(archivo);
+
+
+}else{
+
+    let fotoAnterior =
+    editando>=0 ? plantas[editando].foto : "";
+
+    alert("Va a guardar");
+
+    guardarPlanta(fotoAnterior);
 
 }
 
-
+}
 
 
 function guardarPlanta(imagen){
